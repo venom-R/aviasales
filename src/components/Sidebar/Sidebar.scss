@@ -1,0 +1,13 @@
+.sidebar {
+	flex: 1 0 14.0625rem;
+
+	&__card {
+		padding: .4rem 0;
+		font-size: .75rem;
+	}
+
+	&__subtitle {
+		font-size: inherit;
+		text-transform: uppercase;
+	}
+}

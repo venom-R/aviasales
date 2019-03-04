@@ -1,0 +1,67 @@
+@import "../../variables";
+
+.filter {
+	margin: 0 -1.25rem;
+
+	&__item {
+		display: flex;
+		padding: .45rem 1.25rem;
+		transition: background-color .3s ease-in-out;
+
+		&:hover {
+			background-color: $primary-hover-color;
+
+			.filter__btn-only { opacity: 1; }
+		}
+	}
+
+	&__label {
+		position: relative;
+		flex: 1 1;
+		cursor: pointer;
+		user-select: none;
+		padding-left: 1.875rem;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 1.1875rem;
+			height: 1.1875rem;
+			background-color: #fff;
+			border: 1px solid $border-color;
+			border-radius: $btn-border-radius;
+		}
+
+	}
+
+	&__checkbox {
+		position: absolute;
+		clip: rect(0, 0, 0, 0);
+
+		&:checked ~ .filter__label {
+			&::after {
+				background: url('./checkbox.svg') center no-repeat $primary-hover-color;
+				border: 1px solid $primary-color;
+			}
+		}
+
+	}
+
+	&__btn-only {
+		opacity: 0;
+		font-size: .7rem;
+		text-transform: uppercase;
+		color: $primary-color;
+		padding: 0;
+		border: none;
+		background-color: transparent;
+		user-select: none;
+
+		&:focus,
+		&:hover {
+			color: darken($primary-color, 10);
+		}
+	}
+}
