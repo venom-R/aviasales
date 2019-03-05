@@ -1,36 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CurrencyItem from '../CurrencyItem';
 import './SelectCurrency.scss';
 
-const SelectCurrency = (props) => {
-	return (
-		<div className="select-currency">
-			<div className="select-currency__btn-group btn-group btn-group-toggle my-2">
-				<label className="btn select-currency__item select-currency__item_active">
-					<input type="radio"
-					       name="currency"
-					       value="rub"
-					/>RUB
-				</label>
+class SelectCurrency extends Component {
+	state = {
+		selected: this.props.list[ 0 ],
+	};
 
-				<label className="btn select-currency__item">
-					<input type="radio"
-					       name="currency"
-					       value="usd"
-					/>USD
-				</label>
+	handleChangeRadio = event => {
+		this.setState({ selected: event.target.value });
+	};
 
-				<label className="btn select-currency__item">
-					<input type="radio"
-					       name="currency"
-					       value="eur"
-					/>EUR
-				</label>
+	render() {
+		const { selected } = this.state;
+		const { list } = this.props;
+
+		return (
+			<div className="select-currency">
+				<div className="select-currency__btn-group btn-group btn-group-toggle my-2">
+					{
+						list.map(currency => {
+							return <CurrencyItem checked={currency === selected}
+							                     label={currency.toUpperCase()}
+							                     value={currency}
+							                     onChange={this.handleChangeRadio}
+							/>;
+						})
+					}
+				</div>
 			</div>
-		</div>
-	);
-};
+		);
+	}
+}
 
-SelectCurrency.propTypes = {};
+SelectCurrency.propTypes = {
+	list: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default SelectCurrency;

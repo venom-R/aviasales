@@ -4,13 +4,13 @@ import SelectCurrency from '../SelectCurrency';
 import Filter from '../Filter';
 import './Sidebar.scss';
 
-const Sidebar = (props) => {
+const Sidebar = () => {
 	return (
 		<Col className="sidebar">
 			<Card className="sidebar__card">
 				<Card.Body>
 					<Card.Subtitle className="sidebar__subtitle mb-2">Валюта</Card.Subtitle>
-					<SelectCurrency/>
+					<SelectCurrency list={[ 'rub', 'usd', 'eur' ]}/>
 					<Card.Subtitle className="sidebar__subtitle mt-4 mb-3">Количество пересадок</Card.Subtitle>
 					<Filter/>
 				</Card.Body>
