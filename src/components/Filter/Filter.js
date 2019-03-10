@@ -1,91 +1,88 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import FilterItem from '../FilterItem';
+import filters from './filters';
+import { CheckedFilters } from '../../utils';
 import './Filter.scss';
 
-const Filter = (props) => {
-	return (
-		<ul className="filter list-unstyled">
-			<li className="filter__item">
-				<input type="checkbox"
-				       id="filter__checkbox_all"
-				       name="filterByStops"
-				       value={-1}
-				       className="filter__checkbox"
-				       onClick={e => console.log(e.target)}
-				       defaultChecked
-				/>
-				<label htmlFor="filter__checkbox_all" className="filter__label">
-					Все
-				</label>
-			</li>
+class Filter extends Component {
+	state = {
+		allChecked:   false,
+		checkedItems: new CheckedFilters(this.props.checkedItems),
+	};
+	allItem = { value: -1, label: 'Все', name: 'all' };
 
-			<li className="filter__item">
-				<input type="checkbox"
-				       id="filter__checkbox_0"
-				       name="filterByStops"
-				       value={0}
-				       className="filter__checkbox"
-				       onClick={e => console.log(e.target)}
-				/>
-				<label htmlFor="filter__checkbox_0" className="filter__label">
-					Без пересадок
-				</label>
-				<button type="button" className="filter__btn-only">
-					Только
-				</button>
-			</li>
+	onChange = event => {
+		const { name, value } = event.target;
+		this.setState(({ checkedItems }) => {
+			const result = checkedItems.toggle({ name, value });
+			return {
+				checkedItems: result,
+				allChecked:   this.isAllChecked(result, filters),
+			};
+		});
+	};
 
-			<li className="filter__item">
-				<input type="checkbox"
-				       id="filter__checkbox_1"
-				       name="filterByStops"
-				       value={1}
-				       className="filter__checkbox"
-				       onClick={e => console.log(e.target)}
-				/>
-				<label htmlFor="filter__checkbox_1" className="filter__label">
-					1 пересадка
-				</label>
-				<button type="button" className="filter__btn-only">
-					Только
-				</button>
-			</li>
+	markAllHandler = () => {
+		if (this.isAllChecked(this.state.checkedItems, filters)) {
+			this.setState(({ checkedItems }) => ({
+				checkedItems: checkedItems.clear(),
+				allChecked:   false,
+			}));
+		} else {
+			const checkedItems = new CheckedFilters(filters.map(({ name, value }) => ({ name, value })));
+			this.setState({ checkedItems, allChecked: true });
+		}
+	};
 
-			<li className="filter__item">
-				<input type="checkbox"
-				       id="filter__checkbox_2"
-				       name="filterByStops"
-				       value={2}
-				       className="filter__checkbox"
-				       onClick={e => console.log(e.target)}
-				/>
-				<label htmlFor="filter__checkbox_2" className="filter__label">
-					2 пересадки
-				</label>
-				<button type="button" className="filter__btn-only">
-					Только
-				</button>
-			</li>
+	isAllChecked(checkedList, filters) {
+		return checkedList.size() === filters.length;
+	}
 
-			<li className="filter__item">
-				<input type="checkbox"
-				       id="filter__checkbox_3"
-				       name="filterByStops"
-				       value={3}
-				       className="filter__checkbox"
-				       onClick={e => console.log(e.target)}
-				/>
-				<label htmlFor="filter__checkbox_3" className="filter__label">
-					3 пересадки
-				</label>
-				<button type="button" className="filter__btn-only">
-					Только
-				</button>
-			</li>
-		</ul>
-	);
-};
+	componentDidMount() {
+		this.setState({
+			allChecked: this.isAllChecked(this.state.checkedItems, filters),
+		});
+	}
 
-Filter.propTypes = {};
+	static propTypes = {
+		checkedItems: PropTypes.arrayOf(PropTypes.object),
+	};
+
+	static defaultProps = {
+		checkedItems: [],
+	};
+
+
+	render() {
+		const { checkedItems, allChecked } = this.state;
+		const { allItem } = this;
+
+		return (
+			<ul className="filter list-unstyled">
+				<FilterItem {...allItem}
+				            checked={allChecked}
+				            onChange={this.markAllHandler}
+				/>
+				{filters.map(item => {
+					return (
+						<FilterItem {...item}
+						            key={item.name}
+						            checked={checkedItems.has(item.name)}
+						            onChange={this.onChange}
+						>
+							<button type="button"
+							        className="filter__btn-only"
+							        onClick={(e) => console.log('show only this: ' + e.target)}
+							>
+								Только
+							</button>
+						</FilterItem>
+					);
+				})}
+			</ul>
+		);
+	};
+}
 
 export default Filter;

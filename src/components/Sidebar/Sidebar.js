@@ -4,6 +4,13 @@ import SelectCurrency from '../SelectCurrency';
 import Filter from '../Filter';
 import './Sidebar.scss';
 
+const checkedFilters = [
+	{ name: 'withoutStops', value: 0 },
+	{ name: 'oneStop', value: 1 },
+	{ name: 'twoStops', value: 2 },
+	{ name: 'threeStops', value: 3 },
+];
+
 const Sidebar = () => {
 	return (
 		<Col className="sidebar">
@@ -12,7 +19,7 @@ const Sidebar = () => {
 					<Card.Subtitle className="sidebar__subtitle mb-2">Валюта</Card.Subtitle>
 					<SelectCurrency list={[ 'rub', 'usd', 'eur' ]}/>
 					<Card.Subtitle className="sidebar__subtitle mt-4 mb-3">Количество пересадок</Card.Subtitle>
-					<Filter/>
+					<Filter checkedItems={checkedFilters}/>
 				</Card.Body>
 			</Card>
 		</Col>

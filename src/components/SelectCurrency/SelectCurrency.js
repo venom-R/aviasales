@@ -8,6 +8,10 @@ class SelectCurrency extends Component {
 		selected: this.props.list[ 0 ],
 	};
 
+	static propTypes = {
+		list: PropTypes.arrayOf(PropTypes.string).isRequired,
+	};
+
 	handleChangeRadio = event => {
 		this.setState({ selected: event.target.value });
 	};
@@ -21,7 +25,8 @@ class SelectCurrency extends Component {
 				<div className="select-currency__btn-group btn-group btn-group-toggle my-2">
 					{
 						list.map(currency => {
-							return <CurrencyItem checked={currency === selected}
+							return <CurrencyItem key={currency}
+							                     checked={currency === selected}
 							                     label={currency.toUpperCase()}
 							                     value={currency}
 							                     onChange={this.handleChangeRadio}
@@ -33,9 +38,5 @@ class SelectCurrency extends Component {
 		);
 	}
 }
-
-SelectCurrency.propTypes = {
-	list: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
 
 export default SelectCurrency;
