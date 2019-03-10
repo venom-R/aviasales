@@ -5,8 +5,8 @@ import './CurrencyItem.scss';
 
 const CurrencyItem = ({ checked, label, value, onChange }) => {
 	const className = classNames(
-		'btn select-currency__item',
-		{ 'select-currency__item_active': checked },
+		'btn currency__item',
+		{ 'currency__item_active': checked },
 	);
 	return (
 		<label className={className}>

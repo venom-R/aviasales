@@ -20,6 +20,12 @@ const FilterItem = ({ name, value, label, checked, onChange, children }) => {
 	);
 };
 
-FilterItem.propTypes = {};
+FilterItem.propTypes = {
+	name:     PropTypes.string.isRequired,
+	value:    PropTypes.number.isRequired,
+	label:    PropTypes.string.isRequired,
+	checked:  PropTypes.bool.isRequired,
+	onChange: PropTypes.func.isRequired,
+};
 
 export default FilterItem;

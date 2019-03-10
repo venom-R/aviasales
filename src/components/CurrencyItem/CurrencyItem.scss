@@ -1,6 +1,6 @@
 @import "../../variables";
 
-.select-currency__item {
+.currency__item {
 	border: 1px solid $border-color;
 	color: $primary-color;
 	padding: 0;
@@ -8,7 +8,7 @@
 	line-height: 2.5rem;
 	cursor: pointer;
 
-	&:not(.select-currency__item_active):hover {
+	&:not(.currency__item_active):hover {
 		background-color: $primary-hover-color;
 		border-color: $primary-color;
 		color: $primary-color;

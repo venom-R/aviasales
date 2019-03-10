@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
-import SelectCurrency from '../SelectCurrency';
+import Currency from '../Currency';
 import Filter from '../Filter';
 import './Sidebar.scss';
 
@@ -17,7 +17,7 @@ const Sidebar = () => {
 			<Card className="sidebar__card">
 				<Card.Body>
 					<Card.Subtitle className="sidebar__subtitle mb-2">Валюта</Card.Subtitle>
-					<SelectCurrency list={[ 'rub', 'usd', 'eur' ]}/>
+					<Currency list={[ 'rub', 'usd', 'eur' ]}/>
 					<Card.Subtitle className="sidebar__subtitle mt-4 mb-3">Количество пересадок</Card.Subtitle>
 					<Filter checkedItems={checkedFilters}/>
 				</Card.Body>
