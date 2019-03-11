@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FilterItem from '../FilterItem';
-import filters from './filters';
+import filters from '../../stops';
 import { CheckedFilters } from '../../utils';
 import './Filter.scss';
 
