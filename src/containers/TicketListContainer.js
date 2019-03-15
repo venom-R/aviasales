@@ -29,7 +29,8 @@ class TicketListContainer extends Component {
 		const { tickets, loading, error } = this.state;
 		if (error) return <Col className="ticket-list"><ErrorIndicator/></Col>;
 		if (loading) return <Spinner/>;
-		return <TicketList tickets={tickets}/>;
+		const sortedTickets = [ ...tickets ].sort((prev, next) => prev.price - next.price);
+		return <TicketList tickets={sortedTickets}/>;
 	}
 }
 
