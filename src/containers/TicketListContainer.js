@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col } from 'react-bootstrap';
-import TicketList from '../components/TicketList';
 import { AviasalesService, ExchangeService } from '../services';
+import TicketList from '../components/TicketList';
 import Spinner from '../components/Spinner';
 import ErrorIndicator from '../components/ErrorIndicator';
 
