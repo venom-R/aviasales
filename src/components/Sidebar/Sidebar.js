@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
-import Currency from '../Currency';
+import Currency from '../../containers/CurrencyContainer';
 import Filter from '../Filter';
 import './Sidebar.scss';
 

@@ -3,7 +3,7 @@ import { Row } from 'react-bootstrap';
 import Header from '../Header';
 import Main from '../Main';
 import Sidebar from '../Sidebar';
-import TicketListContainer from '../../containers/TicketListContainer';
+import TicketList from '../../containers/TicketListContainer';
 
 class App extends Component {
 	render() {
@@ -13,7 +13,7 @@ class App extends Component {
 				<Main>
 					<Row>
 						<Sidebar/>
-						<TicketListContainer/>
+						<TicketList/>
 					</Row>
 				</Main>
 			</div>
