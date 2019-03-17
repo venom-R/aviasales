@@ -4,7 +4,7 @@ import { Col } from 'react-bootstrap';
 import TicketList from '../components/TicketList';
 import Spinner from '../components/Spinner';
 import ErrorIndicator from '../components/ErrorIndicator';
-import { changeCurrency, fetchExchangeRates, fetchTickets, setTicketsFilter } from '../actions';
+import { fetchExchangeRates, fetchTickets } from '../actions';
 
 class TicketListContainer extends Component {
 	componentDidMount() {
@@ -15,7 +15,7 @@ class TicketListContainer extends Component {
 	render() {
 		console.log(this.props);
 
-		const { tickets, exchangeRates, filter } = this.props;
+		const { tickets, exchangeRates } = this.props;
 
 		if (tickets.error || exchangeRates.error) {
 			return <Col className="ticket-list"><ErrorIndicator/></Col>;
@@ -29,10 +29,11 @@ class TicketListContainer extends Component {
 	}
 }
 
+const applyStopsFilter = (tickets, filter) => tickets.filter(item => filter.includes(item.stops));
+
 const mapStateToProps = ({ tickets, exchangeRates, filter }) => ({
-	tickets,
+	tickets: { ...tickets, items: applyStopsFilter(tickets.items, filter) },
 	exchangeRates,
-	filter,
 });
 
 const mapDispatchToProps = {
