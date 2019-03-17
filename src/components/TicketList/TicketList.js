@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import id from 'uuid/v4';
 import { Col } from 'react-bootstrap';
-import Ticket from '../Ticket';
+import Ticket from '../../containers/TicketContainer';
 import './TicketList.scss';
 
 const TicketList = ({ tickets }) => {

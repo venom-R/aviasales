@@ -6,7 +6,6 @@ import stopsValues from '../../stops';
 import airlineLogo from './turkish-airlines.png';
 import './Ticket.scss';
 
-// TODO сделать смену символа валюты (₽, $, €)
 const Ticket = (props) => {
 	const {
 		origin, origin_name, destination, destination_name, departure_time, departure_date,
@@ -20,7 +19,7 @@ const Ticket = (props) => {
 				<Col md={4} className="ticket__body_left ticket__body">
 					<img src={airlineLogo} alt="Airline logo" className="img-fluid"/>
 					<button className="btn btn-buy ticket__btn-buy">
-						Купить <br/> за {price} ₽
+						Купить <br/> за {price} {props.currencyCharacter}
 					</button>
 				</Col>
 

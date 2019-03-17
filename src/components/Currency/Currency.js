@@ -11,7 +11,7 @@ const Currency = ({ list, changeCurrency, selected }) => {
 					list.map(currency => {
 						return <CurrencyItem key={currency}
 						                     checked={currency === selected}
-						                     label={currency.toUpperCase()}
+						                     label={currency}
 						                     value={currency}
 						                     onChange={() => changeCurrency(currency)}
 						/>;

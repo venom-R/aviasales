@@ -17,7 +17,7 @@ const Sidebar = () => {
 			<Card className="sidebar__card">
 				<Card.Body>
 					<Card.Subtitle className="sidebar__subtitle mb-2">Валюта</Card.Subtitle>
-					<Currency list={[ 'rub', 'usd', 'eur' ]}/>
+					<Currency list={[ 'RUB', 'USD', 'EUR' ]}/>
 					<Card.Subtitle className="sidebar__subtitle mt-4 mb-3">Количество пересадок</Card.Subtitle>
 					<Filter checkedItems={checkedFilters}/>
 				</Card.Body>

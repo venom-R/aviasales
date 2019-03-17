@@ -1,6 +1,6 @@
 import { CHANGE_CURRENCY } from '../types';
 
-const initialState = 'rub';
+const initialState = 'RUB';
 
 export const currency = (state = initialState, action) => {
 	const { type, payload } = action;
