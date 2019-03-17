@@ -3,7 +3,6 @@ import { Row } from 'react-bootstrap';
 import Header from '../Header';
 import Main from '../Main';
 import Sidebar from '../Sidebar';
-import TicketList from '../TicketList';
 import TicketListContainer from '../../containers/TicketListContainer';
 
 class App extends Component {
