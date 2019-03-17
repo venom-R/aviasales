@@ -20,7 +20,6 @@ const currencyCharacters = {
 
 const mapStateToProps = ({ currency, exchangeRates }, { data }) => {
 	const price = (data.price * exchangeRates.items[ currency ]).toFixed(2);
-	console.log(currencyCharacters[ currency ]);
 	return {
 		data:              { ...data, price },
 		currencyCharacter: currencyCharacters[ currency ],

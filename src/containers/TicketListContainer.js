@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import TicketList from '../components/TicketList';
 import Spinner from '../components/Spinner';
 import ErrorIndicator from '../components/ErrorIndicator';
@@ -11,6 +12,13 @@ class TicketListContainer extends Component {
 		this.props.fetchTickets();
 		this.props.fetchExchangeRates();
 	}
+
+	static propTypes = {
+		tickets:            PropTypes.object.isRequired,
+		exchangeRates:      PropTypes.object.isRequired,
+		fetchTickets:       PropTypes.func.isRequired,
+		fetchExchangeRates: PropTypes.func.isRequired,
+	};
 
 	render() {
 		console.log(this.props);

@@ -52,7 +52,8 @@ const Ticket = (props) => {
 };
 
 Ticket.propTypes = {
-	data: PropTypes.object.isRequired,
+	data:              PropTypes.object.isRequired,
+	currencyCharacter: PropTypes.string.isRequired,
 };
 
 export default Ticket;

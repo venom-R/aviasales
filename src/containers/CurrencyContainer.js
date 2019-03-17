@@ -9,7 +9,9 @@ const CurrencyContainer = ({ list, currency, changeCurrency }) => {
 };
 
 CurrencyContainer.propTypes = {
-	list: PropTypes.array.isRequired,
+	list:           PropTypes.array.isRequired,
+	currency:       PropTypes.string.isRequired,
+	changeCurrency: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ currency }) => ({ currency });
