@@ -38,8 +38,6 @@ const mapStateToProps = ({ tickets, exchangeRates, filter }) => ({
 const mapDispatchToProps = {
 	fetchTickets,
 	fetchExchangeRates,
-	setTicketsFilter,
-	changeCurrency,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TicketListContainer);
