@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Ticket from '../components/Ticket';
+import currencyCharacters from '../currencies';
 
 const TicketContainer = ({ data, currencyCharacter }) => {
 	return <Ticket data={data} currencyCharacter={currencyCharacter}/>;
@@ -10,12 +11,6 @@ const TicketContainer = ({ data, currencyCharacter }) => {
 TicketContainer.propTypes = {
 	data:              PropTypes.object.isRequired,
 	currencyCharacter: PropTypes.string.isRequired,
-};
-
-const currencyCharacters = {
-	RUB: '₽',
-	USD: '$',
-	EUR: '€',
 };
 
 const mapStateToProps = ({ currency, exchangeRates }, { data }) => {
