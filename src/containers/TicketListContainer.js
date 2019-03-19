@@ -21,8 +21,6 @@ class TicketListContainer extends Component {
 	};
 
 	render() {
-		console.log(this.props);
-
 		const { tickets, exchangeRates } = this.props;
 
 		if (tickets.error || exchangeRates.error) {
