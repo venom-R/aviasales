@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './FilterItem.scss';
 
 const FilterItem = ({ name, value, label, checked, onChange, children }) => {
 	return (
