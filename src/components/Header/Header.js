@@ -3,16 +3,14 @@ import { Container } from 'react-bootstrap';
 import logo from './logo.svg';
 import './Header.scss';
 
-const Header = () => {
-	return (
-		<header className="header">
-			<Container>
-				<a href="/" className="header__link">
-					<img src={logo} alt="Logo"/>
-				</a>
-			</Container>
-		</header>
-	);
-};
+const Header = () => (
+	<header className="header">
+		<Container>
+			<a href="/" className="header__link">
+				<img src={logo} alt="Logo"/>
+			</a>
+		</Container>
+	</header>
+);
 
 export default Header;

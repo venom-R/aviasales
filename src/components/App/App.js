@@ -5,18 +5,16 @@ import Main from '../Main';
 import Sidebar from '../Sidebar';
 import TicketList from '../../containers/TicketListContainer';
 
-const App = () => {
-	return (
-		<div className="App">
-			<Header/>
-			<Main>
-				<Row>
-					<Sidebar/>
-					<TicketList/>
-				</Row>
-			</Main>
-		</div>
-	);
-};
+const App = () => (
+	<div className="App">
+		<Header/>
+		<Main>
+			<Row>
+				<Sidebar/>
+				<TicketList/>
+			</Row>
+		</Main>
+	</div>
+);
 
 export default App;
