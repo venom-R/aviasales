@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import FilterItem from '../FilterItem';
 import './Filter.scss';
@@ -29,6 +29,14 @@ const Filter = ({ filters, checkedItems, onChange, onSelectAll, onSelectOne }) =
 			})}
 		</ul>
 	);
+};
+
+Filter.propTypes = {
+	filters:      PropTypes.arrayOf(PropTypes.object).isRequired,
+	checkedItems: PropTypes.array.isRequired,
+	onChange:     PropTypes.func.isRequired,
+	onSelectAll:  PropTypes.func.isRequired,
+	onSelectOne:  PropTypes.func.isRequired,
 };
 
 export default Filter;

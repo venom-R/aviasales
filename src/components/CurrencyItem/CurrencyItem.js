@@ -20,9 +20,10 @@ const CurrencyItem = ({ checked, label, value, onChange }) => {
 };
 
 CurrencyItem.propTypes = {
-	checked: PropTypes.bool.isRequired,
-	label:   PropTypes.string.isRequired,
-	value:   PropTypes.string.isRequired,
+	checked:  PropTypes.bool.isRequired,
+	label:    PropTypes.string.isRequired,
+	value:    PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
 };
 
 export default CurrencyItem;
