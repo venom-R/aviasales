@@ -26,26 +26,51 @@
 
 	&__body {
 		padding: 1.5rem 1.4rem;
+
 		&_left {
 			text-align: center;
-			border-right: 1px solid #eceff1;
+
+			@media screen and (min-width: 768px) {
+				border-right: 1px solid #eceff1;
+			}
+
+			@media screen and (max-width: 767px) {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding-top: .5rem;
+			}
 		}
 		&_right {
 			position: relative;
+			@media screen and (max-width: 767px) {
+				padding-bottom: .5rem;
+			}
 		}
 	}
 
 	&__btn-buy {
 		font-size: .9rem;
-		width: 100%;
-		margin-top: 1.5rem;
+		max-width: 11.625rem;
 		padding: .3rem 1rem;
+
+		@media screen and (min-width: 768px) {
+			margin: 1.5rem auto 0;
+			width: 100%;
+		}
+	}
+
+	&__airline-logo {
+		@media screen and (max-width: 459px) {
+			max-width: 7rem;
+		}
 	}
 
 	&__time {
-		font-size: 2rem;
+		font-size: 1.5rem;
 		line-height: 2rem;
 		margin-bottom: .5rem;
+		@media screen and (min-width: 460px) { font-size: 2rem; }
 	}
 
 	&__city {
@@ -60,27 +85,35 @@
 		text-align: center;
 		color: $secondary;
 		white-space: nowrap;
-		top: 1.6875rem;
+		top: 1.9875rem;
 		left: calc(50% - 4.375rem / 2);
+		@media screen and (min-width: 460px) {
+			top: 1.6875rem;
+		}
 
 		&::before {
-			content: '';
-			position: absolute;
-			height: 1px;
-			width: 6rem;
-			background-color: #d2d5d6;
-			top: 1.5625rem;
-			left: -0.84375rem;
+			@media screen and (min-width: 460px) {
+				content: '';
+				position: absolute;
+				height: 1px;
+				background-color: #d2d5d6;
+				top: 1.5625rem;
+				left: -0.84375rem;
+				width: 6rem;
+			}
+
 		}
 
 		&::after {
-			content: '';
-			position: absolute;
-			background: url('./plane.svg') no-repeat;
-			width: 13px;
-			height: 14px;
-			top: 1.1875rem;
-			right: -1.25rem;
+			@media screen and (min-width: 460px) {
+				content: '';
+				position: absolute;
+				background: url('./plane.svg') no-repeat;
+				width: 13px;
+				height: 14px;
+				top: 1.1875rem;
+				right: -1.25rem;
+			}
 		}
 	}
 

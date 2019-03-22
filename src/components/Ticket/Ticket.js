@@ -16,14 +16,7 @@ const Ticket = (props) => {
 		<Card className="ticket">
 			<Row className="ticket__inner">
 
-				<Col md={4} className="ticket__body_left ticket__body">
-					<img src={airlineLogo} alt="Airline logo" className="img-fluid"/>
-					<button className="btn btn-buy ticket__btn-buy">
-						Купить <br/> за {price} {props.currencyCharacter}
-					</button>
-				</Col>
-
-				<Col md={8} className="ticket__body_right ticket__body">
+				<Col md={8} className="ticket__body_right ticket__body order-md-1">
 					<div className="ticket__stops">{stopsLabel}</div>
 					<Row className="justify-content-between">
 
@@ -44,6 +37,13 @@ const Ticket = (props) => {
 						</Col>
 
 					</Row>
+				</Col>
+
+				<Col md={4} className="ticket__body_left ticket__body order-md-0">
+					<img src={airlineLogo} alt="Airline logo" className="ticket__airline-logo"/>
+					<button className="btn btn-buy ticket__btn-buy">
+						Купить <br/> за {price} {props.currencyCharacter}
+					</button>
 				</Col>
 
 			</Row>

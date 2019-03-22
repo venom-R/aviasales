@@ -1,7 +1,10 @@
 @import "variables";
 @import "~bootstrap/scss/bootstrap";
 
-html {}
+html {
+	font-size: 90%;
+	@media screen and (min-width: 460px) { font-size: 100%; }
+}
 
 body {
 	font: 16px 'Open Sans', sans-serif;
